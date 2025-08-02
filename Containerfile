@@ -27,12 +27,5 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     
 ### LINTING
 
-# Add the GDM user and group.
-# This is necessary because the barebone base doesn't have it by default.
-RUN groupadd -r gdm && useradd -r -g gdm -s /sbin/nologin gdm -d /var/lib/gdm
-
-# Create the home directory for the gdm user and set permissions.
-RUN mkdir -p /var/lib/gdm && chown gdm:gdm /var/lib/gdm
-
 ## Verify final image and contents are correct.
 RUN bootc container lint
