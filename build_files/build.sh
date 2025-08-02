@@ -9,8 +9,14 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
-# this installs a package from fedora repos
+# Install Packages needed for Personal use
 dnf5 install -y tmux virt-manager sbsigntools firefox gparted terminus-fonts terminus-fonts-console
+
+# Install Desktop Environment
+dnf5 install -y @gnome-desktop
+
+# Install Flatpak
+dnf5 install -y flatpak
 
 # Use a COPR Example:
 #
