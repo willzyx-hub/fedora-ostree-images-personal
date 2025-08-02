@@ -12,12 +12,6 @@ set -ouex pipefail
 # Install Packages needed for Personal use
 dnf5 install -y tmux virt-manager sbsigntools firefox gparted terminus-fonts terminus-fonts-console
 
-# Install Desktop Environment
-dnf5 install -y @gnome-desktop
-
-# Install Flatpak
-dnf5 install -y flatpak
-
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
