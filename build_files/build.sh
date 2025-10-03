@@ -13,8 +13,8 @@ set -ouex pipefail
 dnf5 install -y tmux virt-manager sbsigntools gparted terminus-fonts terminus-fonts-console
 
 # Install Google Chrome
-curl -LO https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm . # Try to add . to ensure the .rpm downloaded at current directory
-dnf5 install -y ./google-chrome-stable_current_x86.64.rpm
+wget -O /tmp/google-chrome-stable_current_x86_64.rpm https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm # Try using absolute path
+dnf5 install -y /tmp/google-chrome-stable_current_x86_64.rpm
 
 # Use a COPR Example:
 #
