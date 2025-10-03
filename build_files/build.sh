@@ -12,6 +12,15 @@ set -ouex pipefail
 # Install Packages needed for Personal use
 dnf5 install -y tmux virt-manager sbsigntools gparted terminus-fonts terminus-fonts-console
 
+# Ensure /opt/google is free and not occupied.
+if [ -e /opt/google ]; then
+  if [ ! -d /opt/google ]; then
+    echo "/opt/google exists and is not a directory; backing it up" # Check to make sure /opt/google isn't a file otherwise the installation will fail.
+    mv -f /opt/google /opt/google.bak
+  fi
+fi
+mkdir -p /opt/google
+
 # Install Google Chrome
 wget -O /tmp/google-chrome-stable_current_x86_64.rpm https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm # Try using absolute path
 dnf5 install -y /tmp/google-chrome-stable_current_x86_64.rpm
