@@ -48,6 +48,18 @@ rm -f /etc/yum.repos.d/google-chrome.repo
 
 # Move the application to somewhere on the final image
 mv /var/opt/google /usr/lib/google
+
+# Ensure systemd points symlink to new directory
+cat >/usr/lib/tmpfiles.d/eternal-google.conf <<EOF
+L  /opt/google  -  -  -  -  /usr/lib/google
+EOF
+
+# Make sure to remove Google Chrome profile locks
+cat >/usr/share/user-tmpfiles.d/eternal-google-locks.conf <<EOF
+r  %h/.config/google-chrome/Singleton*  -  -  -  -  -
+EOF
+
+# Print Messages after Installation completed
 echo "Google Chrome Installation Completed successfully"
 
 
