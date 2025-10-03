@@ -10,7 +10,11 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # Install Packages needed for Personal use
-dnf5 install -y tmux virt-manager sbsigntools firefox gparted terminus-fonts terminus-fonts-console
+dnf5 install -y tmux virt-manager sbsigntools gparted terminus-fonts terminus-fonts-console
+
+# Install Google Chrome
+curl -LO https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+dnf5 install -y ./google-chrome-stable_current_x86.64.rpm
 
 # Use a COPR Example:
 #
