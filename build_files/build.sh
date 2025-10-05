@@ -12,14 +12,6 @@ set -ouex pipefail
 # Install Packages needed for Personal use
 dnf5 install -y tmux virt-manager sbsigntools gparted terminus-fonts terminus-fonts-console
 
-# Ensure /opt is a directory; if /opt exists as a file, move it aside
-if [ -e /opt ]; then
-  if [ ! -d /opt ]; then
-    echo "/opt exists but is not a directory; moving it aside"
-    mv -f /opt /opt.bak
-  fi
-fi
-
 # Prepare Google Chrome Installation
 mkdir -p /var/opt
 
